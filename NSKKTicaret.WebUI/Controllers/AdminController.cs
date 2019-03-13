@@ -59,9 +59,13 @@ namespace NSKKTicaret.WebUI.Controllers
                 {
                     pictureId = pic.id;
                 }
-               
+                if (pictureId != -1)
+                    brn.PictureID = pictureId;
+
+                Context.Connection.Brands.Add(brn);
+                Context.Connection.SaveChanges();
             }
-            return View();
+            return RedirectToAction("BrandList");
         }
     }
 }
