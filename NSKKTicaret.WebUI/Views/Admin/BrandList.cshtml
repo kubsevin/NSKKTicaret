@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Markalar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@model IEnumerable<NSKKTicaret.WebUI.Models.Brand>
+
+<section class="panel">
+    <header class="panel-heading">
+        Markalar
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <div class="clearfix">
+                <div class="btn-group">
+                    <button href="/Admin/AddBrand" class="btn green">
+                        Yeni Marka <i class="icon-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div class="space15"></div>
+            <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <thead>
+                    <tr>
+                        <th>Marka Adı</th>
+                        <th>Açıklama</th>
+                        <th>Resmi Göster</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var brn in Model)
+                    {
+                        <tr class="">
+                            <td>@brn.BrandName</td>
+                            <td>@brn.Description</td>
+
+                            <td><a class="" href="#"><i class="icon-add"></i>Resmi Göster</a></td>
+                            <td><a class="edit" href="/Admin/UpdateBrand/@brn.id"><i class="icon-pencil"></i>Güncelle</a></td>
+                            <td><a class="delete" href="/Admin/DeleteBrand/@brn.id"><i class="icon-trash"></i>Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
